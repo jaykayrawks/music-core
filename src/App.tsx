@@ -1,10 +1,6 @@
-import { useEffect,useState } from 'react';
 import './App.css'
-import AuthProvider from "./provider/authProvider";
+import AuthProvider from "./provider/AuthProvider";
 import Routes from "./routes";
-
-// import { Button } from 'mf1/button'; // Importing the Button component from the remote module
-// import { Button as Button2 } from 'mf2/button'; // Importing the Button component from the remote module
 
 function App() {
    

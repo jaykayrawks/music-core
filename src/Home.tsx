@@ -1,5 +1,5 @@
 import { lazy } from "react";
-import { useAuth } from "./provider/authProvider";
+import { useAuth } from "./provider/AuthProvider";
 const Collection = lazy(()=>import ('library/collection'));
 const Home = () => {
   const { removeToken } = useAuth();

@@ -1,14 +1,12 @@
-import './App.css'
 import AuthProvider from "./provider/AuthProvider";
-import Routes from "./routes";
+import Home from "./Home";
 
-function App() {
-   
+function App() {   
 return (
   <AuthProvider>
-    <Routes />
+    <Home />
   </AuthProvider>
 );
 }
 
-export default App
+export default App;

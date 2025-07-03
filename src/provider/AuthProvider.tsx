@@ -1,10 +1,19 @@
 import { createContext, useContext, useEffect,useMemo, useState } from "react";
 
-const AuthContext = createContext();
+type Token = string | null;
+type Context={
+  token:Token;
+  setToken:(token:Token )=>void;
+      removeToken:()=>void;
+}
+const AuthContext = createContext<Context >({token:null, setToken:()=>{}, removeToken:()=>{}});
 
 const AuthProvider = ({ children }) => {
-  const [token, setToken] = useState(localStorage.getItem("token"));
+  const [token, _setToken] = useState<string | null>(localStorage.getItem("token"));
 
+  const setToken = (newToken: string | null) => {
+    _setToken(newToken);
+  };
   useEffect(() => {
     if (token) {
       localStorage.setItem('token',token);
@@ -14,10 +23,10 @@ const AuthProvider = ({ children }) => {
   }, [token]);
 
   const removeToken=()=>{
-    setToken(undefined);
+    setToken(null);
     localStorage.removeItem('token')
   }
- const contextValue = useMemo(
+ const contextValue = useMemo<Context>(
     () => ({
       token,
       setToken,

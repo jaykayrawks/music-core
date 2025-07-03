@@ -1,54 +1,25 @@
-# React + TypeScript + Vite
+# Music Core
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a Micro frontend Host App:
 
-Currently, two official plugins are available:
+home page renders a login page with following roles:
+ - admin : has acess to edit the music library
+ - user : View only acess to the music library
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Renders follwing remote modules after login
 
-## Expanding the ESLint configuration
+Remote modules: (#update the remote entry path with proper remote paths local or server before build)
+ - library/collection : 
+    - local: localhost:3001
+    - Server: https://music-library-snowy.vercel.app
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+To run app in local:
+ npm i : installs dependencies
+ cd music-host
+ npm run dev : runs a dev server on localhost:3001
+ npm run build: Build the bundle
+ npm run preview: runs the build on local server
+ npm run test: runs unit tests
+ npm run test:coverage   Runs test coverage
